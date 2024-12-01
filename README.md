@@ -7,8 +7,8 @@ Asp.net Core MVC 6 Pages with Admin LTE Template
 - Entity Framework Core Code First 
 - Javascript, Jquery
 
-![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/KaracadanWebApp/Img/Capture1.PNG)
-![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/KaracadanWebApp/Img/Capture2.PNG)
-![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/KaracadanWebApp/Img/Capture3.PNG)
-![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/KaracadanWebApp/Img/Capture4.PNG)
-![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/KaracadanWebApp/Img/Capture6.PNG)
+![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/Tadawi/Img/Capture1.PNG)
+![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/Tadawi/Img/Capture2.PNG)
+![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/Tadawi/Img/Capture3.PNG)
+![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/Tadawi/Img/Capture4.PNG)
+![alt text](https://github.com/mustafaalkan64/AdminLTETemplateAspNetCore6/blob/master/Tadawi/Img/Capture6.PNG)
