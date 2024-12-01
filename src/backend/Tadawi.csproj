@@ -104,7 +104,7 @@
     <None Include="wwwroot\WebCore\build\scss\_toasts.scss" />
     <None Include="wwwroot\WebCore\build\scss\_users-list.scss" />
     <None Include="wwwroot\WebCore\build\scss\_variables.scss" />
-    <None Include="wwwroot\WebCore\dist\img\AdminLTELogo.png" />
+    <None Include="wwwroot\WebCore\dist\img\logo.png" />
     <None Include="wwwroot\WebCore\dist\img\avatar.png" />
     <None Include="wwwroot\WebCore\dist\img\avatar04.png" />
     <None Include="wwwroot\WebCore\dist\img\avatar2.png" />

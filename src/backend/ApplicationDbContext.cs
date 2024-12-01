@@ -13,46 +13,10 @@ namespace Tadawi
         {
         }
 
-        public DbSet<Personels> Personels { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Personels>(entity =>
-            {
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Surname)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.SicilNo)
-                    .IsRequired(false)
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.CardNumber)
-                    .IsRequired(false)
-                    .HasMaxLength(100);
-
-
-                entity.Property(e => e.Email)
-                    .IsRequired(false)
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.PhoneNumber)
-                    .IsRequired(false)
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.FirmName)
-                    .IsRequired(false)
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Password)
-                    .IsRequired(false)
-                    .HasMaxLength(100);
-            });
-
-            base.OnModelCreating(builder);
+      
+                  base.OnModelCreating(builder);
         }
     }
 }

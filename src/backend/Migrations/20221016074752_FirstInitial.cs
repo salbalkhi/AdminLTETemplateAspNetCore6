@@ -51,26 +51,6 @@ namespace Tadawi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Personels",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirmName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SicilNo = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Personels", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -233,9 +213,7 @@ namespace Tadawi.Migrations
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
 
-            migrationBuilder.DropTable(
-                name: "Personels");
-
+    
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
