@@ -16,6 +16,7 @@ namespace Tadawi.Migrations
             INSERT INTO [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'1', N'Admin', N'ADMIN', N'1');
             INSERT INTO [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'2', N'Client', N'Client', N'2');
             INSERT INTO [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'3', N'Vistor', N'Vistor', N'3');
+            INSERT INTO [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'4', N'Stuff', N'STUFF', N'4');
         ");
 
             // Seed Data for User Table add admin user "admin" with password "admin"
@@ -37,6 +38,7 @@ namespace Tadawi.Migrations
             DELETE FROM [dbo].[AspNetRoles] WHERE [Id] = N'1';
             DELETE FROM [dbo].[AspNetRoles] WHERE [Id] = N'2';
             DELETE FROM [dbo].[AspNetRoles] WHERE [Id] = N'3';
+            DELETE FROM [dbo].[AspNetRoles] WHERE [Id] = N'4';
         ");
 
             migrationBuilder.Sql(@"

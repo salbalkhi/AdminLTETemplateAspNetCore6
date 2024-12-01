@@ -34,8 +34,9 @@
 
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <form asp-action="Login" asp-id="SignIn" id="SignIn">
+                    <input type="hidden" id="adminLoginHidden" name="adminLogin" value="false" />
                     <div class="input-group mb-3">
-                        <input asp-for="Email" class="form-control" placeholder="Email" />
+                        <input asp-for="Email" class="form-control" placeholder="Email" id="emailInput" />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -58,6 +59,12 @@
                                 <input type="checkbox" asp-for="RememberMe" class="form-control" />
                                 <label for="remember">
                                     Remember Me
+                                </label>
+                            </div>
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="adminLogin" class="form-control" />
+                                <label for="adminLogin">
+                                    Admin Login
                                 </label>
                             </div>
                         </div>
@@ -100,12 +107,24 @@
     <script src="~/WebCore/plugins/jquery-validation/additional-methods.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/WebCore/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/WebCore/dist/js/demo.js"></script>
-    <!-- SweetAlert2 -->
+    
+     <!-- SweetAlert2 -->
     <script src="~/WebCore/plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- Toastr -->
     <script src="~/WebCore/plugins/toastr/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#adminLogin').change(function () {
+                if (this.checked) {
+                    $('#emailInput').hide();
+                    $('#adminLoginHidden').val('true');
+                } else {
+                    $('#emailInput').show();
+                    $('#adminLoginHidden').val('false');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 

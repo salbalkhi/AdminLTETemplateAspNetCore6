@@ -17,33 +17,40 @@ namespace Tadawi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login(UserLoginModel userLoginModel)
+        public async Task<ActionResult> Login(UserLoginModel userLoginModel, bool adminLogin)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || adminLogin)
             {
-                ApplicationUser user = await userManager.FindByEmailAsync(userLoginModel.Email);
+                ApplicationUser user = null;
+
+                if (adminLogin)
+                {
+                    user = await userManager.FindByNameAsync("admin");
+                }
+                else
+                {
+                    user = await userManager.FindByEmailAsync(userLoginModel.Email);
+                }
 
                 if (user != null)
                 {
-
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, userLoginModel.Password, userLoginModel.RememberMe, false);
 
                     if (result.Succeeded)
                     {
-
                         return RedirectToAction("Index", "Home");
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Şifreniz Hatalı");
-                        ViewBag.Message = "Şifreniz Hatalı";
+                        ModelState.AddModelError("", "Your password is incorrect.");
+                        ViewBag.Message = "Your password is incorrect.";
                         return View(userLoginModel);
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Bu email adresine kayıtlı kullanıcı bulunamamıştır.");
-                    ViewBag.Message = "Bu email adresine kayıtlı kullanıcı bulunamamıştır.";
+                    ModelState.AddModelError("", "No user is registered with this email address.");
+                    ViewBag.Message = "No user is registered with this email address.";
                 }
             }
 
@@ -75,17 +82,24 @@ namespace Tadawi.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (userRegisterModel.UserName.ToLower() == "admin" || userRegisterModel.UserName.ToLower() == "administrator")
+                {
+                    ModelState.AddModelError("", "Registration with this username is not allowed.");
+                    ViewBag.Message = "Registration with this username is not allowed.";
+                    return View(userRegisterModel);
+                }
+
                 if (userManager.Users.Any(u => u.Email == userRegisterModel.Email))
                 {
-                    ModelState.AddModelError("", "Bu email adresi kayıtlıdır.");
-                    ViewBag.Message = "Bu email adresi kayıtlıdır.";
+                    ModelState.AddModelError("", "This email address is already registered.");
+                    ViewBag.Message = "This email address is already registered.";
                     return View(userRegisterModel);
                 }
 
                 if (userManager.Users.Any(u => u.PhoneNumber == userRegisterModel.PhoneNumber))
                 {
-                    ModelState.AddModelError("", "Bu telefon numarası kayıtlıdır.");
-                    ViewBag.Message = "Bu telefon numarası kayıtlıdır.";
+                    ModelState.AddModelError("", "This phone number is already registered.");
+                    ViewBag.Message = "This phone number is already registered.";
                     return View(userRegisterModel);
                 }
 
@@ -100,11 +114,12 @@ namespace Tadawi.Controllers
 
                 if (result.Succeeded)
                 {
+                    await userManager.AddToRoleAsync(user, "Stuff");
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewBag.Message = "Kayıt Sırasında Hata ile Karşılaşıldı";
+                    ViewBag.Message = "Operation did not succeed.";
                     AddModelError(result);
                 }
             }
