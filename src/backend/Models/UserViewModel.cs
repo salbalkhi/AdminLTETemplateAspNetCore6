@@ -4,32 +4,30 @@ namespace Tadawi.Models
 {
     public class UserRegisterModel
     {
-        [Required(ErrorMessage = "Kullanıcı ismi gereklidir.")]
-        [Display(Name = "Kullanıcı Adı")]
+        [Required(ErrorMessage = "Username is required.")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "İsim gereklidir.")]
-        [Display(Name = "İsim")]
+        [Required(ErrorMessage = "First name is required.")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Soyisim gereklidir.")]
-        [Display(Name = "Soyisim")]
+        [Required(ErrorMessage = "Last name is required.")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Display(Name = "Tel No:")]
-        //[RegularExpression(@"^(0(\d{3}) (\d{3}) (\d{2}) (\d{2}))$", ErrorMessage = "Telefon numarası uygun formatta değil")]
-        [Required(ErrorMessage = "Telefon Numarası gereklidir.")]
+        [Display(Name = "Phone Number")]
+        [Required(ErrorMessage = "Phone number is required.")]
         public string PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Email adresi gereklidir.")]
-        [Display(Name = "Email Adresiniz")]
-        [EmailAddress(ErrorMessage = "Email adresiniz doğru formatta değil")]
+        [Required(ErrorMessage = "Email address is required.")]
+        [Display(Name = "Email Address")]
+        [EmailAddress(ErrorMessage = "Invalid email address format.")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Şifreniz gereklidir.")]
-        [Display(Name = "Şifre")]
+        [Required(ErrorMessage = "Password is required.")]
+        [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
     }
 }
