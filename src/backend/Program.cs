@@ -20,6 +20,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Register Password Service
 builder.Services.AddScoped<IPasswordService, PasswordService>();
+builder.Services.AddScoped<IStorageService, LocalStorageService>();
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
@@ -111,4 +112,3 @@ app.MapControllers();
 
 
 app.Run();
-
